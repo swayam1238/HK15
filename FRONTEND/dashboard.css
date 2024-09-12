@@ -105,13 +105,12 @@ body {
 .main-content {
   display: flex;
   flex-direction: column; /* Stack dropdown and containers */
-  align-items: flex-start; /* Align items to the start */
+  align-items: center; /* Center items horizontally */
   gap: 15px;
   padding: 20px;
   box-sizing: border-box;
   flex: 1;
   margin-top: 75px;
-  margin-right: 200px; /* Adjust this value to move content towards the left */
 }
 
 /* Container for search box and dropdown */
@@ -122,23 +121,31 @@ body {
 }
 
 /* Search Box Styling */
+.search-container {
+  position: relative;
+}
+
 .search-box {
-  width: 300px;
-  height: 40px;
-  padding: 10px;
+  width: 300px; /* Same width as the dropdown */
+  height: 40px; /* Same height as the dropdown */
+  padding: 10px 40px 10px 10px; /* Add padding to accommodate the search icon */
   border-radius: 20px;
   border: 1px solid #ddd;
   font-size: 16px;
   outline: none;
+  box-shadow: 0 4px 8px rgba(20, 20, 20, 0.915);
   background-color: #fcebeb; /* Simple and decent color */
 }
 
 /* Search Button Styling */
 .search-btn {
+  position: absolute; /* Position inside the search box */
+  right: 10px; /* Align to the right inside the box */
+  top: 50%; /* Center vertically */
+  transform: translateY(-50%); /* Adjust for vertical centering */
   border: none;
   background: transparent;
   cursor: pointer;
-  margin-left: -40px; /* Overlaps the search box for better aesthetics */
 }
 
 .search-btn img {
@@ -147,26 +154,24 @@ body {
 }
 
 /* Dropdown list styling in main content */
-
 /* Container for dropdown list */
 .dropdown-list-container {
   display: flex;
-  justify-content: flex-end; /* Align items to the right end */
-  width: 100%; /* Make sure it takes up full width of its parent */
-  margin-bottom: 20px; /* Adds space below the dropdown */
+  justify-content: center; /* Center align the dropdown list */
+  margin-bottom: 0px; /* Adds space below the dropdown */
+  width: 100%; /* Ensure it spans the full width of the parent */
 }
 
 /* Dropdown styling */
 .main-dropdown {
-  width: 300px; /* Adjust width as needed */
-  padding: 8px;
+  width: 300px; /* Same width as the search box */
+  height: 40px; /* Same height as the search box */
+  padding: 10px 40px 10px 10px; 
   font-size: 16px;
   border-radius: 20px;
-  background: linear-gradient(135deg, #f3f3f3, #05031086); /* Gradient background */
-  border: 1px solid #0b0b0b; /* Light border for definition */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+  background: linear-gradient(135deg, #f3f3f3, #e3e2e8f2); /* Gradient background // Light border for definition */
+  box-shadow: 0 4px 8px rgba(20, 20, 20, 0.915); /* Shadow for depth */
 }
-
 
 /* Container styling */
 .container {
@@ -230,5 +235,5 @@ body {
   margin-right: auto;
   color: white;
   padding-left: 30px;
-  font-family: "Bodoni Moda SC", serif;
+  font-family: "Bodoni Moda SC", serif;
 }
