@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="login.css">
+    <title>Login Page</title>
+    <script>
+        function handleLogin() {
+            // Get input values
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Basic validation
+            if (username.trim() === '' || password.trim() === '') {
+                alert('Please enter both username and password.');
+                return;
+            }
+
+            // Simulate authentication check
+            sessionStorage.setItem('authenticated', 'true');
+            window.location.href = 'dashboard.html';
+        }
+    </script>
+</head>
+<body>
+    <!-- Login Page Content -->
+    <div class="login-container">
+        <div class="quote">JUST A TAP AHEAD</div>
+        <div class="login-form">
+            <label for="username">Username</label>
+            <input type="text" id="username" name="username" placeholder="Enter your username" required>
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password" required>
+            <button class="login-button" onclick="handleLogin()">Login</button>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,234 @@
+:root {
+  --arrow-bg: rgba(255, 255, 255, 0.3);
+  --arrow-icon: url(https://upload.wikimedia.org/wikipedia/commons/9/9d/Caret_down_font_awesome_whitevariation.svg);
+  --option-bg: white;
+  --select-bg: rgba(255, 255, 255, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* General styling for the dashboard page */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background: linear-gradient(135deg, #3a2450, #b281cd);
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+/* Top Navigation Bar styling */
+.top-nav {
+  background: linear-gradient(135deg, #3a2450, #b281cd);
+  color: #ffffff;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  box-shadow: 10px 8px 10px 8px rgba(0, 0, 0, 0.2);
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Profile container styling */
+.profile-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+/* Profile icon styling */
+.profile-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: 50px;
+  right: 0;
+  background-color: #ffffff;
+  color: #000000;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  padding: 10px;
+  min-width: 150px;
+  z-index: 1000;
+}
+
+.dropdown-menu.show {
+  display: block;
+}
+
+.dropdown-menu a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #000000;
+  border-bottom: 1px solid #ddd;
+}
+
+.dropdown-menu a:hover {
+  background-color: #f0f0f0;
+}
+
+/* Logout link styling */
+.logout-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+}
+
+.logout-icon {
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+  transition: opacity 0.3s;
+}
+
+.logout-icon:hover {
+  opacity: 0.7;
+}
+
+/* Main content styling */
+.main-content {
+  display: flex;
+  flex-direction: column; /* Stack dropdown and containers */
+  align-items: flex-start; /* Align items to the start */
+  gap: 15px;
+  padding: 20px;
+  box-sizing: border-box;
+  flex: 1;
+  margin-top: 75px;
+  margin-right: 200px; /* Adjust this value to move content towards the left */
+}
+
+/* Container for search box and dropdown */
+.search-dropdown-container {
+  display: flex;
+  align-items: center; /* Align items vertically center */
+  gap: 15px; /* Space between search box and dropdown */
+}
+
+/* Search Box Styling */
+.search-box {
+  width: 300px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 20px;
+  border: 1px solid #ddd;
+  font-size: 16px;
+  outline: none;
+  background-color: #fcebeb; /* Simple and decent color */
+}
+
+/* Search Button Styling */
+.search-btn {
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  margin-left: -40px; /* Overlaps the search box for better aesthetics */
+}
+
+.search-btn img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Dropdown list styling in main content */
+
+/* Container for dropdown list */
+.dropdown-list-container {
+  display: flex;
+  justify-content: flex-end; /* Align items to the right end */
+  width: 100%; /* Make sure it takes up full width of its parent */
+  margin-bottom: 20px; /* Adds space below the dropdown */
+}
+
+/* Dropdown styling */
+.main-dropdown {
+  width: 300px; /* Adjust width as needed */
+  padding: 8px;
+  font-size: 16px;
+  border-radius: 20px;
+  background: linear-gradient(135deg, #f3f3f3, #05031086); /* Gradient background */
+  border: 1px solid #0b0b0b; /* Light border for definition */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Shadow for depth */
+}
+
+
+/* Container styling */
+.container {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 24px;
+  font-family: "Bodoni Moda SC", serif;
+  color: #000000;
+  text-align: center;
+}
+
+/* Side Navigation Styling */
+.side-nav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1001;
+  top: 0;
+  left: 0;
+  background-color: #3a2450;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.side-nav a {
+  padding: 20px 25px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #ffffff;
+  display: block;
+  transition: 0.5s;
+  font-family: "Bodoni Moda SC", serif;
+}
+
+.side-nav a:hover {
+  background-color: #b281cd00;
+  color: #24504f;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 20px;
+  font-size: 30px;
+  margin-left: 50px;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* Top Navigation Styling */
+.open-btn {
+  font-size: 24px;
+  cursor: pointer;
+  margin-right: auto;
+  color: white;
+  padding-left: 30px;
+  font-family: "Bodoni Moda SC", serif;
+}

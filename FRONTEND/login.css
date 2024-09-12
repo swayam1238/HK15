@@ -1,0 +1,91 @@
+/* General styling for the login page */
+.bodoni-moda-sc-login {
+    font-family: "Bodoni Moda SC", serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Arial", sans-serif;
+    background: linear-gradient(135deg, #3a2450, #b281cd); /* Gradient background */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  /* Container for the login page content */
+  .login-container {
+    text-align: justify;
+    background-color: #c4a2e7;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 40px;
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center-align content horizontally */
+  }
+  
+  /* Quote styling */
+  .quote {
+    font-size: 30px; /* Size of the quote */
+    font-family: "Bodoni Moda SC", serif;
+    color: #000000;
+    text-align: center;
+    margin-bottom: 20px;
+    animation: fadeIn 1.5s ease-out;
+  }
+  
+  /* Login form styling */
+  .login-form {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    gap: 15px;
+    width: 100%; /* Ensures the form takes up full width */
+  }
+  
+  /* Input field styling */
+  .login-form input {
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 12px;
+    text-align: left;
+    font-size: 16px;
+    width: 90%;
+  }
+  
+  /* Button styling */
+  .login-button {
+    background: linear-gradient(45deg, #592d8f, #8574d6da); /* Gradient color */
+    color: #ffffff;
+    border: none;
+    border-radius: 25px;
+    padding: 15px;
+    font-size: 16px; /* Increased font size */
+    cursor: pointer;
+    width: 100%; /* Makes the button full-width */
+    transition: background-color 0.3s, transform 0.3s;
+  }
+  
+  .login-button:hover {
+    background: linear-gradient(45deg, #2b2d2f, #040c1b); /* Reversed gradient color on hover */
+    transform: scale(1.05);
+  }
+  
+  /* Keyframes for animations */
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda+SC:ital,opsz,wght@0,6..96,400..900;1,6..96,400..900&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="dashboard.css">
+    <title>Dashboard</title>
+    <script>
+        // Check if user is authenticated
+        document.addEventListener("DOMContentLoaded", function() {
+            if (!sessionStorage.getItem('authenticated')) {
+                window.location.href = 'login.html';
+            }
+        });
+
+        function logout() {
+            sessionStorage.removeItem('authenticated');
+            window.location.href = 'login.html';
+        }
+
+        function toggleDropdown() {
+            const menu = document.querySelector('.dropdown-menu');
+            menu.classList.toggle('show');
+        }
+
+        function openNav() {
+            document.getElementById("sideNav").style.width = "250px";
+        }
+
+        function closeNav() {
+            document.getElementById("sideNav").style.width = "0";
+        }
+
+        // Improved dropdown handling
+        document.addEventListener('click', function(event) {
+            const dropdown = document.querySelector('.dropdown-menu');
+            const profileContainer = document.querySelector('.profile-container');
+
+            // Close dropdown if click is outside profile container
+            if (!profileContainer.contains(event.target)) {
+                dropdown.classList.remove('show');
+            }
+        });
+    </script>
+</head>
+<body>
+    <!-- Side Navigation -->
+    <div id="sideNav" class="side-nav">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeNav()">&times;</a>
+        <a href="#dashboard">Dashboard</a>
+        <a href="#services">Services</a>
+        <a href="#clients">Clients</a>
+        <a href="#contact">Contact</a>
+    </div>
+
+    <!-- Top Navigation Bar -->
+    <nav class="top-nav">
+        <span class="open-btn" onclick="openNav()">&#9776; Menu</span>
+        <div class="profile-container">
+            <img src="img/person_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="Profile Icon" class="profile-icon" onclick="toggleDropdown()">
+            <div class="dropdown-menu">
+                <a href="view-profile.html">View Profile</a>
+                <a href="settings.html">Settings</a>
+            </div>
+        </div>
+        <a href="#" onclick="logout()" class="logout-link">
+            <img src="img/logout_24dp_E8EAED_FILL0_wght400_GRAD0_opsz24.png" alt="Logout Icon" class="logout-icon">
+        </a>
+    </nav>
+
+    <div class="main-content">
+        <!-- Container for dropdown and search box -->
+        <div class="search-dropdown-container">
+            <!-- Search Box -->
+            <div class="search-container">
+                <input type="text" class="search-box" placeholder="Search...">
+                <button class="search-btn">
+                    <img src="img/search_24dp_000000_FILL0_wght400_GRAD0_opsz24.png" alt="Search Icon">
+                </button>
+            </div>
+    
+            <!-- Dropdown List -->
+            <div class="dropdown-list-container">
+                <select class="main-dropdown">
+                    <option selected value="0">Select an Option</option>
+                    <option value="1">Admin</option>
+                    <option value="2">Police Department</option>
+                    <option value="3">Traffic Police Department</option>
+                    <option value="4">Passport Department</option>
+                </select>
+                
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
