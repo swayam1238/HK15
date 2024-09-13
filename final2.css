@@ -1,0 +1,160 @@
+/* Reset some default styles */
+body, h2, h3, p {
+    margin: 0;
+    padding: 0;
+}
+.unlock-regular {
+    font-family: "Unlock", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+  
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+    background-color: #8491ef;
+    color: #333;
+}
+
+/* Quote styling */
+.quote {
+    font-size: 30px;
+    text-align: center;
+    margin: 40px 0;
+    font-family: "Unlock", serif;
+    background: linear-gradient(135deg, #040405, #0e0503);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+/* Top navigation bar */
+/* Top navigation bar */
+.navbar {
+    display: none;
+    background-color: #333;
+    overflow: hidden;
+    width: 100%;
+    padding: 10px 0;
+    position: fixed;
+    top: 0;
+    z-index: 1; /* Ensures it is on top of other elements */
+}
+
+.navbar ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.navbar ul li {
+    display: inline;
+}
+
+.navbar ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px;
+}
+
+.navbar ul li a:hover {
+    background-color: #575757;
+    border-radius: 5px;
+}
+
+.navbar ul li a:hover {
+    background-color: #575757;
+    border-radius: 5px;
+}
+
+/* Container styles */
+.container {
+    display: flex;
+    padding-top: 120px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    gap: 20px;
+    padding-top: 60px;
+}
+
+/* Login, Aadhaar, and result containers */
+.login-container, .aadhar-container, .result-container {
+    background: linear-gradient(135deg, #436ccc, #1b2264);
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    gap: 20px;
+    width: 500px;
+}
+
+.result-container {
+    display: none;
+    background: #8bb3e7;
+    border-radius: 8px;
+    text-align: left;
+    width: 950px;
+    align-items: center;
+    padding: 20px;
+    font-family: 'Lucida Sans', sans-serif;
+    color: #333;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Headings */
+h2, h3 {
+    margin-bottom: 20px;
+    color: #ffffff;
+    font-size: 20px;
+    text-align: center;
+    font-family: "Unlock", serif;
+}
+
+/* Input styling */
+input[type="text"], input[type="password"] {
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* Button styling */
+button {
+    width: 100%;
+    padding: 10px;
+    background-color: #5cb85c;
+    border: none;
+    color: #fff;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #4cae4c;
+}
+
+/* Result list styling */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 8px 0;
+}
+
+hr {
+    margin: 10px 0;
+}
+
+/* Responsive styling for smaller screens */
+@media (max-width: 600px) {
+    .login-container, .aadhar-container, .result-container {
+       
+    }}

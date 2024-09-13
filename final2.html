@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>User Login</title>
+  <!-- Link to external CSS file -->
+  <link rel="stylesheet" href="final2.css">
+  <!-- Include Font Awesome for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Unlock&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-- Direct quote at the top without a container -->
+  <p class="quote">"Your identity, your security, and your future in one place."</p>
+
+  <!-- Top Navigation Bar -->
+  <div class="navbar" id="navbar">
+    <ul>
+      <li><a href="#"><i class="fas fa-home"></i> Home</a></li>
+      <li><a href="#"><i class="fas fa-user"></i> Profile</a></li>
+      <li><a href="#"><i class="fas fa-id-card"></i> Aadhar</a></li>
+      <li><a href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+    </ul>
+  </div>
+
+  <div class="container">
+    <!-- Login container -->
+    <div class="login-container" id="loginContainer">
+      <h2>Login to View Your Data</h2>
+      <form id="loginForm">
+        <input type="text" id="username" placeholder="Username" required><br>
+        <input type="password" id="passkey" placeholder="Password" required><br>
+        <button type="submit" class="log">Login</button>
+      </form>
+    </div>
+
+    <!-- Aadhaar container -->
+    <div class="aadhar-container" id="aadharContainer">
+      <h2>Enter Aadhar Number</h2>
+      <input type="text" id="aadhar_number" placeholder="Aadhar Number" required><br>
+      <button id="submitAadharButton">Submit Aadhar Number</button>
+    </div>
+
+    <!-- Result container to display output -->
+    <div class="result-container" id="resultContainer">
+      <h3>Result</h3>
+      <div id="result"></div>
+    </div>
+  </div>
+
+  <script>
+    let credentials = {};
+
+    // Hide navbar initially
+    document.getElementById('navbar').style.display = 'none';
+
+    // Handle login form submission
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      const username = document.getElementById('username').value;
+      const passkey = document.getElementById('passkey').value;
+
+      // Store login credentials
+      credentials = { username, passkey };
+    });
+
+    // Handle Aadhaar submission
+    document.getElementById('submitAadharButton').addEventListener('click', function() {
+      const aadhar_number = document.getElementById('aadhar_number').value;
+
+      // Make API call to backend
+      fetch('http://localhost:3000/final2', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ ...credentials, aadhar_number })
+      })
+      .then(response => response.json())
+      .then(data => {
+        if (data.success) {
+          // Hide the login and Aadhaar containers
+          document.getElementById('loginContainer').style.display = 'none';
+          document.getElementById('aadharContainer').style.display = 'none';
+
+          // Show the navbar
+          document.getElementById('navbar').style.display = 'block';
+
+          // Show the result container and display the result
+          displayView(data.role_name, data.data);
+        } else {
+          document.getElementById('result').innerHTML = 'Login failed. Please check your credentials.';
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+      });
+    });
+
+    // Function to display the view data in a list format
+    function displayView(role, viewData) {
+      let output = `<h3>${role} View</h3>`;
+      output += '<ul>';
+
+      // Display data as list items
+      viewData.forEach(row => {
+        for (const key in row) {
+          output += `<li><strong>${key}:</strong> ${row[key]}</li>`;
+        }
+        output += '<hr>';  // Separate each row of data with a line
+      });
+
+      output += '</ul>';
+      document.getElementById('result').innerHTML = output;
+
+      // Show the result container
+      document.getElementById('resultContainer').style.display = 'block';
+    }
+  </script>
+</body>
+</html>
